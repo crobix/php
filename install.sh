@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/sh -xe
 ##
 # Jb Nahan PHP 7.2 container
 ##
