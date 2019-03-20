@@ -12,7 +12,8 @@ RUN     apt-get update && apt-get -y upgrade
 # Common packages
 ENV 		CA_CERTIFICATES_JAVA_VERSION 20161107~bpo8+1
 
-RUN         apt-get -y install curl wget locales nano git subversion sudo php5-dev librabbitmq-dev openjdk-8-jre-headless ca-certificates-java="$CA_CERTIFICATES_JAVA_VERSION" pkg-config
+RUN         apt-get -y install curl wget locales nano git subversion sudo php5-dev librabbitmq-dev openjdk-8-jre-headless ca-certificates-java="$CA_CERTIFICATES_JAVA_VERSION" pkg-config libmagickwand-dev libmagickcore-dev libmagickwand-6.q16-3 libmagickcore-6.q16-3
+
 
 RUN         echo "Europe/Paris" > /etc/timezone && dpkg-reconfigure -f noninteractive tzdata
 RUN         export LANGUAGE=en_US.UTF-8 && \
