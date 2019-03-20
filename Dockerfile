@@ -12,7 +12,7 @@ RUN     apt-get update && apt-get -y upgrade
 # Common packages
 ENV 		CA_CERTIFICATES_JAVA_VERSION 20161107~bpo8+1
 
-RUN         apt-get -y install curl wget locales nano git subversion sudo php5-dev librabbitmq-dev openjdk-8-jre-headless ca-certificates-java="$CA_CERTIFICATES_JAVA_VERSION" pkg-config libmagickwand-dev libmagickcore-dev libmagickwand-6.q16-2 libmagickcore-6.q16-2
+RUN         apt-get -y install curl wget locales nano git subversion sudo php5-dev librabbitmq-dev openjdk-8-jre-headless ca-certificates-java="$CA_CERTIFICATES_JAVA_VERSION"
 
 
 RUN         echo "Europe/Paris" > /etc/timezone && dpkg-reconfigure -f noninteractive tzdata
@@ -43,16 +43,13 @@ RUN             sed -i 's/disable_functions\ \=\ pcntl_alarm,pcntl_fork,pcntl_wa
 
 
 #PEAR
-RUN     pear upgrade && pear install pecl/amqp-1.9.1 && pear install pecl/xdebug-2.5.5
+RUN     pear update-channels && pear install pecl/amqp-1.9.1 && pear install pecl/xdebug-2.5.5
 RUN     echo "extension=amqp.so" > /etc/php5/mods-available/amqp.ini
 RUN     echo "zend_extension=xdebug.so" > /etc/php5/mods-available/xdebug.ini
 
 #RUN     cd /etc/php5/apache2/conf.d && ln -s ../../mods-available/amqp.ini 20-amqp.ini
 #RUN     cd /etc/php5/cli/conf.d && ln -s ../../mods-available/amqp.ini 20-amqp.ini
 RUN     php5enmod amqp xdebug
-
-RUN     pear channel-discover pear.phpmd.org && pear channel-discover pear.pdepend.org && pear channel-discover pear.phpdoc.org && pear channel-discover components.ez.no
-RUN     pear install PHP_CodeSniffer && pear install --alldeps phpmd/PHP_PMD
 
 RUN             useradd -s /bin/bash --home /sources --no-create-home phpuser
 COPY            bin/fixright /
