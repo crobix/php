@@ -43,7 +43,7 @@ RUN             sed -i 's/disable_functions\ \=\ pcntl_alarm,pcntl_fork,pcntl_wa
 
 
 #PEAR
-RUN     pear upgrade && pear install pecl/amqp-1.9.1 && pear install pecl/xdebug
+RUN     pear upgrade && pear install pecl/amqp-1.9.1 && pear install pecl/xdebug2.5.5
 RUN     echo "extension=amqp.so" > /etc/php5/mods-available/amqp.ini
 RUN     echo "zend_extension=xdebug.so" > /etc/php5/mods-available/xdebug.ini
 
