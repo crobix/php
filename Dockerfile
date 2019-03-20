@@ -53,7 +53,6 @@ RUN     php5enmod amqp xdebug
 
 RUN     pear channel-discover pear.phpmd.org && pear channel-discover pear.pdepend.org && pear channel-discover pear.phpdoc.org && pear channel-discover components.ez.no
 RUN     pear install PHP_CodeSniffer && pear install --alldeps phpmd/PHP_PMD
-RUN     git clone https://github.com/lapistano/Symfony2-coding-standard.git /usr/share/php/PHP/CodeSniffer/Standards/Symfony2
 
 RUN             useradd -s /bin/bash --home /sources --no-create-home phpuser
 COPY            bin/fixright /
