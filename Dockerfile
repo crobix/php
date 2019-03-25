@@ -2,8 +2,8 @@
 # Jb Nahan PHP 7.2 container
 ##
 
-FROM            macintoshplus/php:base
-MAINTAINER  Jean-Baptiste Nahan <jean-baptiste@nahan.fr>
+FROM            crobix/php:base
+MAINTAINER  Loïc AUDU <audu382@gmail.com>
 
 ENV         DEBIAN_FRONTEND noninteractive
 
