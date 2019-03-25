@@ -1,6 +1,6 @@
 #!/bin/sh -xe
 ##
-# Jb Nahan PHP 7.2 container
+# Loïc AUDU PHP 7.2 container
 ##
 
 export DEBIAN_FRONTEND=noninteractive
