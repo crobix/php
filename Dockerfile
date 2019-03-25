@@ -3,7 +3,7 @@
 ##
 
 FROM            debian:stable
-MAINTAINER  Jean-Baptiste Nahan <jean-baptiste@nahan.fr>
+MAINTAINER  Loïc AUDU <audu382@gmail.com>
 
 ENV         DEBIAN_FRONTEND noninteractive
 
