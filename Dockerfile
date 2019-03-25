@@ -1,5 +1,5 @@
 ##
-# Jb Nahan PHP 5.6 container
+# Loïc AUDU PHP 5.6 container
 ##
 
 FROM            debian:jessie
