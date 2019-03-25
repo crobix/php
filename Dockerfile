@@ -3,7 +3,7 @@
 ##
 
 FROM            debian:jessie
-MAINTAINER  Jean-Baptiste Nahan <jean-baptiste@nahan.fr>
+MAINTAINER  Loïc AUDU <audu382@gmail.com>
 
 ENV         DEBIAN_FRONTEND noninteractive
 RUN 	echo 'deb http://httpredir.debian.org/debian jessie-backports main' > /etc/apt/sources.list.d/jessie-backports.list
