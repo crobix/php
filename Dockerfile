@@ -1,5 +1,5 @@
 ##
-# Jb Nahan Base container
+# Loïc AUDU Base container
 ##
 
 FROM            debian:stable
