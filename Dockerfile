@@ -1,5 +1,5 @@
 ##
-# Jb Nahan PHP 7.2 container
+# Loïc AUDU PHP 7.2 container
 ##
 
 FROM            crobix/php:base
