@@ -1,12 +1,12 @@
 ##
-# LoÃ¯c AUDU PHP 5.6 container
+# Loïc AUDU PHP 5.6 container
 ##
 
 FROM            debian:jessie
-MAINTAINER  LoÃ¯c AUDU <audu382@gmail.com>
+MAINTAINER  Loïc AUDU <audu382@gmail.com>
 
 ENV         DEBIAN_FRONTEND noninteractive
-RUN 	echo 'deb http://httpredir.debian.org/debian jessie-backports main' > /etc/apt/sources.list.d/jessie-backports.list
+RUN 	echo 'deb http://archive.debian.org/debian jessie-backports main' > /etc/apt/sources.list.d/jessie-backports.list
 RUN     apt-get update && apt-get -y upgrade
 
 # Common packages
