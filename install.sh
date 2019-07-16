@@ -11,7 +11,7 @@ echo "deb https://packages.sury.org/php/ stretch main" > /etc/apt/sources.list.d
 # Blackfire
 wget -q -O - https://packages.blackfire.io/gpg.key | sudo apt-key add -
 echo "deb http://packages.blackfire.io/debian any main" | sudo tee /etc/apt/sources.list.d/blackfire.list
-
+apt-key update
 # PHP
 apt-get update && apt-get upgrade -y && apt-get -y install php7.3-dev php7.3-cli php7.3-bcmath php7.3-curl php-pear php7.3-gd php7.3-mbstring php7.3-mysql php7.3-sqlite3 php7.3-xmlrpc php7.3-xsl php7.3-ldap php7.3-gmp php7.3-intl php7.3-zip php7.3-soap php7.3-xml php7.3-common php7.3-json php7.3-opcache php7.3-readline blackfire-agent blackfire-php
 # Disabled : blackfire-agent blackfire-php
@@ -41,10 +41,10 @@ pear install pecl/amqp
 echo "extension=amqp" > /etc/php/7.3/mods-available/amqp.ini
 
 
-pear install pecl/redis-4.2.0RC3
+pear install pecl/redis-5.0.1
 echo "extension=redis" > /etc/php/7.3/mods-available/redis.ini
 
-apt install -y libmagickwand-dev libmagickcore-dev libmagickwand-6.q16-3 libmagickcore-6.q16-3
+apt install -y libmagickwand-dev libmagickcore-dev libmagickwand-6.q16-6 libmagickcore-6.q16-6
 pear install pecl/imagick
 echo "extension=imagick" > /etc/php/7.3/mods-available/imagick.ini
 
@@ -52,7 +52,7 @@ echo "extension=imagick" > /etc/php/7.3/mods-available/imagick.ini
 #cd xdebug
 #git co 2.6.0beta1
 #/usr/bin/phpize7.3 && ./configure --enable-xdebug && make && make install
-pear install pecl/xdebug-2.7.0
+pear install pecl/xdebug-2.7.2
 echo "zend_extension=xdebug" > /etc/php/7.3/mods-available/xdebug.ini
 
 phpenmod -v 7.3 -s cli amqp sqlsrv pdo_sqlsrv redis xdebug imagick
@@ -64,4 +64,4 @@ groupadd -g ${gid} phpuser
 useradd -l -u ${uid} -g ${gid} -m -s /bin/bash phpuser
 usermod -a -G www-data phpuser
 
-apt-get remove -y libgcc-6-dev libmagickwand-dev libmagickcore-dev && apt autoremove -y
+apt-get remove -y libmagickwand-dev libmagickcore-dev && apt autoremove -y
