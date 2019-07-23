@@ -11,24 +11,19 @@ apt-key add /root/mysql_key.pub && apt-key add /root/microsoft.asc
 echo "deb http://repo.mysql.com/apt/debian/ stretch mysql-5.7"  >> /etc/apt/sources.list.d/mysql.list
 echo "deb https://packages.microsoft.com/ubuntu/16.10/prod yakkety main" > /etc/apt/sources.list.d/mssql-release.list
 echo "deb https://packages.microsoft.com/ubuntu/17.04/prod zesty main" >> /etc/apt/sources.list.d/mssql-release.list
-echo "deb http://ppa.launchpad.net/xapienz/curl34/ubuntu bionic main " >> /etc/apt/sources.list.d/mssql-release.list
-apt-key update
 
 # Environnement
 export ACCEPT_EULA=Y
-
-apt-get install -y curl
-
-apt-get update && apt-get -y upgrade && apt-get install -y multiarch-support mysql-client msodbcsql mssql-tools openjdk-8-jre-headless ca-certificates-java
+apt-get update && apt-get -y upgrade && apt-get install -y multiarch-support mysql-client ca-certificates-java
 
 # Fix SQLSTATE[01000]: [unixODBC][Driver Manager]Can't open lib '/opt/microsoft/msodbcsql/lib64/libmsodbcsql-13.1.so.9.1' : file not found
-wget http://security-cdn.debian.org/debian-security/pool/updates/main/o/openssl/libssl1.1_1.1.0k-1~deb9u1_amd64.deb
-dpkg -i libssl1.1_1.1.0k-1~deb9u1_amd64.deb
-rm libssl1.1_1.1.0k-1~deb9u1_amd64.deb
+wget http://security.debian.org/debian-security/pool/updates/main/o/openssl/libssl1.0.0_1.0.1t-1+deb8u11_amd64.deb
+dpkg -i libssl1.0.0_1.0.1t-1+deb8u11_amd64.deb
+rm libssl1.0.0_1.0.1t-1+deb8u11_amd64.deb
 
-echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> /root/.bash_profile && echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> /root/.bashrc && chmod +x /root/.bashrc
-/root/.bashrc
-export PATH="$PATH:/opt/mssql-tools/bin"
+#echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> /root/.bash_profile && echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> /root/.bashrc && chmod +x /root/.bashrc
+#/root/.bashrc
+#export PATH="$PATH:/opt/mssql-tools/bin"
 
 /var/lib/dpkg/info/ca-certificates-java.postinst configure
 
@@ -39,4 +34,4 @@ export LANGUAGE=en_US.UTF-8 && \
         locale-gen en_US.UTF-8 && \
         DEBIAN_FRONTEND=noninteractive dpkg-reconfigure locales
 
-apt --fix-broken install -y && apt-get autoremove -y && apt-get autoclean && apt-get clean
+apt-get autoremove -y && apt-get autoclean && apt-get clean
