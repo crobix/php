@@ -6,7 +6,7 @@
 export DEBIAN_FRONTEND=noninteractive
 
 wget -q -O - https://packages.sury.org/php/apt.gpg | sudo apt-key add -
-echo "deb https://packages.sury.org/php/ stretch main" > /etc/apt/sources.list.d/sury-php.list
+echo "deb https://packages.sury.org/php/ buster main" > /etc/apt/sources.list.d/sury-php.list
 
 wget -q -O - https://packages.blackfire.io/gpg.key | sudo apt-key add -
 echo "deb http://packages.blackfire.io/debian any main" | sudo tee /etc/apt/sources.list.d/blackfire.list
