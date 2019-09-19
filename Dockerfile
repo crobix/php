@@ -2,7 +2,7 @@
 # Loïc AUDU Base container
 ##
 
-FROM            debian:stable
+FROM            debian:latest
 MAINTAINER  Loïc AUDU <audu382@gmail.com>
 
 ENV         DEBIAN_FRONTEND noninteractive
