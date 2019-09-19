@@ -26,9 +26,9 @@ sed -i 's/disable_functions\ \=\ pcntl_alarm,pcntl_fork,pcntl_waitpid,pcntl_wait
 
 pecl channel-update pecl.php.net
 ## Fix Tar Error
-wget https://github.com/pear/Archive_Tar/archive/1.4.7.tar.gz
-tar -xvf Archive_Tar-1.4.7.tar.gz
-cp Archive_Tar-1.4.7/Archive/Tar.php /usr/share/php/Archive/Tar.php
+wget https://github.com/pear/Archive_Tar/releases/download/1.4.3/Archive_Tar-1.4.3.tgz
+tar -xvf Archive_Tar-1.4.3.tgz
+cp Archive_Tar-1.4.3/Archive/Tar.php /usr/share/php/Archive/Tar.php
 
 pecl install sqlsrv-5.7.0preview
 pecl install pdo_sqlsrv-5.7.0preview
