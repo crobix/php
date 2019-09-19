@@ -13,7 +13,7 @@ wget -q -O - https://packages.blackfire.io/gpg.key | sudo apt-key add -
 echo "deb http://packages.blackfire.io/debian any main" | sudo tee /etc/apt/sources.list.d/blackfire.list
 apt-key update
 # PHP
-apt-get update && apt-get upgrade -y && apt-get -y install php7.4-dev php7.4-cli php7.4-bcmath php7.4-curl php-pear php7.4-gd php7.4-mbstring php7.4-mysql php7.4-sqlite3 php7.4-xmlrpc php7.4-xsl php7.4-ldap php7.4-gmp php7.4-intl php7.4-zip php7.4-soap php7.4-xml php7.4-common php7.4-json php7.4-opcache php7.4-readline blackfire-agent blackfire-php
+apt-get update && apt-get upgrade -y && apt-get -y install php7.4-dev php7.4-cli php7.4-bcmath php7.4-curl php-pear php7.4-gd php7.4-mbstring php7.4-mysql php7.4-sqlite3 php7.4-xmlrpc php7.4-xsl php7.4-ldap php7.4-gmp php7.4-intl php7.4-zip php7.4-soap php7.4-xml php7.4-common php7.4-json php7.4-opcache php7.4-readline
 # Disabled : blackfire-agent blackfire-php
 # Disabled ext from repos :  php7.4-imagick php7.4-xdebug php7.4-apcu
 # Disable dependencies : libmagickwand-6.q16-dev
