@@ -59,4 +59,4 @@ phpenmod -v 7.2 -s cli amqp sqlsrv pdo_sqlsrv redis xdebug imagick
 
 useradd -s /bin/bash --home /sources --no-create-home phpuser
 
-apt-get remove -y libgcc-6-dev libmagickwand-dev libmagickcore-dev && apt autoremove -y
+apt-get remove -y libmagickwand-dev libmagickcore-dev && apt autoremove -y
