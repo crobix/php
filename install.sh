@@ -39,4 +39,4 @@ export LANGUAGE=en_US.UTF-8 && \
         locale-gen en_US.UTF-8 && \
         DEBIAN_FRONTEND=noninteractive dpkg-reconfigure locales
 
-apt-get autoremove -y && apt-get autoclean && apt-get clean
+apt remove -y libgcc-8-dev && apt-get autoremove -y && apt-get autoclean && apt-get clean
