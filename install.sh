@@ -26,25 +26,25 @@ sed -i 's/\memory_limit\ \=\ 128M/memory_limit\ \=\ -1/g' /etc/php/7.4/cli/php.i
 sed -i 's/\display_errors\ \=\ Off/display_errors\ \=\ On/g' /etc/php/7.4/cli/php.ini
 sed -i 's/disable_functions\ \=\ pcntl_alarm,pcntl_fork,pcntl_waitpid,pcntl_wait,pcntl_wifexited,pcntl_wifstopped,pcntl_wifsignaled,pcntl_wexitstatus,pcntl_wtermsig,pcntl_wstopsig,pcntl_signal,pcntl_signal_dispatch,pcntl_get_last_error,pcntl_strerror,pcntl_sigprocmask,pcntl_sigwaitinfo,pcntl_sigtimedwait,pcntl_exec,pcntl_getpriority,pcntl_setpriority,/\;disable_functions\ \=\ pcntl_alarm,pcntl_fork,pcntl_waitpid,pcntl_wait,pcntl_wifexited,pcntl_wifstopped,pcntl_wifsignaled,pcntl_wexitstatus,pcntl_wtermsig,pcntl_wstopsig,pcntl_signal,pcntl_signal_dispatch,pcntl_get_last_error,pcntl_strerror,pcntl_sigprocmask,pcntl_sigwaitinfo,pcntl_sigtimedwait,pcntl_exec,pcntl_getpriority,pcntl_setpriority,/g' /etc/php/7.4/cli/php.ini
 
-pecl channel-update pecl.php.net
+pear channel-update pear.php.net
 ## Fix Tar Error
 #wget https://github.com/pear/Archive_Tar/releases/download/1.4.3/Archive_Tar-1.4.3.tgz
 #tar -xvf Archive_Tar-1.4.3.tgz
 #cp Archive_Tar-1.4.3/Archive/Tar.php /usr/share/php/Archive/Tar.php
 #rm -rf  Archive_Tar-1.4.3
 
-pecl install sqlsrv-5.7.0preview
-pecl install pdo_sqlsrv-5.7.0preview
+pecl install sqlsrv-5.8.1
+pecl install pdo_sqlsrv-5.8.1
 echo "extension=sqlsrv" > /etc/php/7.4/mods-available/sqlsrv.ini
 echo "extension=pdo_sqlsrv" > /etc/php/7.4/mods-available/pdo_sqlsrv.ini
 
 #PEAR
-pear upgrade
+pear upgrade --force
 pear install pecl/amqp
 echo "extension=amqp" > /etc/php/7.4/mods-available/amqp.ini
 
 
-pear install pecl/redis-5.1.1
+pear install pecl/redis-5.3.2
 echo "extension=redis" > /etc/php/7.4/mods-available/redis.ini
 
 apt-get install -y libmagickwand-dev libmagickcore-dev libmagickwand-6.q16-6 libmagickcore-6.q16-6
@@ -52,7 +52,7 @@ pear install pecl/imagick
 echo "extension=imagick" > /etc/php/7.4/mods-available/imagick.ini
 
 
-pear install pecl/xdebug-2.8.1
+pear install pecl/xdebug-2.9.8
 echo "zend_extension=xdebug" > /etc/php/7.4/mods-available/xdebug.ini
 
 phpenmod -v 7.4 -s cli amqp sqlsrv pdo_sqlsrv redis xdebug imagick
