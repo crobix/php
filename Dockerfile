@@ -2,7 +2,7 @@
 # Loïc AUDU PHP 7.2 container
 ##
 
-FROM            crobix/php:base
+FROM            php-test:latest
 MAINTAINER  Loïc AUDU <audu382@gmail.com>
 
 ENV         DEBIAN_FRONTEND noninteractive

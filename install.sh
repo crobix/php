@@ -3,6 +3,8 @@
 # Loïc AUDU PHP 7.4 container
 ##
 
+apt-get update && apt-get -y install gnupg
+
 export DEBIAN_FRONTEND=noninteractive
 # Sury : PHP Sources
 wget -q -O - https://packages.sury.org/php/apt.gpg | sudo apt-key add -
@@ -61,4 +63,4 @@ groupadd -g ${gid} phpuser
 useradd -l -u ${uid} -g ${gid} -m -s /bin/bash phpuser
 usermod -a -G www-data phpuser
 
-apt-get remove -y libgcc-8-dev php7.4-dev libmagickwand-dev libmagickcore-dev && apt-get autoremove -y
+apt-get remove -y libgcc-8-dev php7.4-dev libmagickwand-dev libmagickcore-dev gnupg && apt-get autoremove -y
