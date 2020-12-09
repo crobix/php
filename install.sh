@@ -2,6 +2,7 @@
 ##
 # Jb Nahan Base container
 ##
+mkdir -p /usr/share/man/man1
 
 apt-get update && apt-get -y upgrade && apt-get -y install curl wget locales nano git subversion sudo librabbitmq-dev xfonts-75dpi libfontconfig1 libjpeg62-turbo libxrender1 xfonts-base fontconfig unixodbc-dev apt-transport-https gnupg locales-all gnupg libssl1.1 pkg-config libmagickwand-dev zip
 apt-get -y install pdftk
