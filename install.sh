@@ -9,7 +9,7 @@ apt-get -y install pdftk
 
 apt-key add /root/mysql_key.pub && apt-key add /root/microsoft.asc
 
-echo "deb http://repo.mysql.com/apt/debian/ stretch mysql-5.7"  >> /etc/apt/sources.list.d/mysql.list
+echo "deb http://repo.mysql.com/apt/debian/ buster mysql-5.7"  >> /etc/apt/sources.list.d/mysql.list
 #echo "deb https://packages.microsoft.com/ubuntu/16.10/prod yakkety main" > /etc/apt/sources.list.d/mssql-release.list
 #echo "deb https://packages.microsoft.com/ubuntu/17.04/prod eoan main" >> /etc/apt/sources.list.d/mssql-release.list
 

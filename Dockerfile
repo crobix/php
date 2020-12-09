@@ -2,7 +2,7 @@
 # Loïc AUDU Base container
 ##
 
-FROM            debian:latest
+FROM            debian:buster-slim
 MAINTAINER  Loïc AUDU <audu382@gmail.com>
 
 ENV         DEBIAN_FRONTEND noninteractive
