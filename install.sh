@@ -3,8 +3,6 @@
 # Loïc AUDU PHP 7.4 container
 ##
 
-apt-get update && apt-get -y install gnupg
-
 export DEBIAN_FRONTEND=noninteractive
 # Sury : PHP Sources
 wget -q -O - https://packages.sury.org/php/apt.gpg | sudo apt-key add -
