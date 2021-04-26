@@ -1,8 +1,8 @@
 #!/bin/sh -ex
 ##
-# Loïc AUDU PHP 7.4 container
+# Loïc AUDU PHP 8.0 container
 ##
-
+export ACCEPT_EULA=Y
 export DEBIAN_FRONTEND=noninteractive
 # Sury : PHP Sources
 wget -q -O - https://packages.sury.org/php/apt.gpg | sudo apt-key add -
@@ -14,15 +14,15 @@ echo "deb http://packages.blackfire.io/debian any main" | sudo tee /etc/apt/sour
 
 # PHP
 apt-get update && apt-get upgrade -y
-apt-get -y install php7.4-dev php7.4-cli php7.4-bcmath php7.4-curl php-pear php7.4-gd php7.4-mbstring php7.4-mysql php7.4-sqlite3 php7.4-xmlrpc php7.4-xsl php7.4-ldap php7.4-gmp php7.4-intl php7.4-zip php7.4-soap php7.4-xml php7.4-common php7.4-json php7.4-opcache php7.4-readline
-# Disabled ext from repos :  php7.4-imagick php7.4-xdebug php7.4-apcu
+apt-get -y install php8.0-dev php8.0-cli php8.0-bcmath php8.0-curl php-pear php8.0-gd php8.0-mbstring php8.0-mysql php8.0-sqlite3 php8.0-xmlrpc php8.0-xsl php8.0-ldap php8.0-gmp php8.0-intl php8.0-zip php8.0-soap php8.0-xml php8.0-common php8.0-opcache php8.0-readline
+# Disabled ext from repos :  php8.0-imagick php8.0-xdebug php8.0-apcu
 # Disable dependencies : libmagickwand-6.q16-dev
 # Disabled php-redis
 
-sed -i 's/\;date\.timezone\ \=/date\.timezone\ \=\ Europe\/Paris/g' /etc/php/7.4/cli/php.ini
-sed -i 's/\memory_limit\ \=\ 128M/memory_limit\ \=\ -1/g' /etc/php/7.4/cli/php.ini
-sed -i 's/\display_errors\ \=\ Off/display_errors\ \=\ On/g' /etc/php/7.4/cli/php.ini
-sed -i 's/disable_functions\ \=\ pcntl_alarm,pcntl_fork,pcntl_waitpid,pcntl_wait,pcntl_wifexited,pcntl_wifstopped,pcntl_wifsignaled,pcntl_wexitstatus,pcntl_wtermsig,pcntl_wstopsig,pcntl_signal,pcntl_signal_dispatch,pcntl_get_last_error,pcntl_strerror,pcntl_sigprocmask,pcntl_sigwaitinfo,pcntl_sigtimedwait,pcntl_exec,pcntl_getpriority,pcntl_setpriority,/\;disable_functions\ \=\ pcntl_alarm,pcntl_fork,pcntl_waitpid,pcntl_wait,pcntl_wifexited,pcntl_wifstopped,pcntl_wifsignaled,pcntl_wexitstatus,pcntl_wtermsig,pcntl_wstopsig,pcntl_signal,pcntl_signal_dispatch,pcntl_get_last_error,pcntl_strerror,pcntl_sigprocmask,pcntl_sigwaitinfo,pcntl_sigtimedwait,pcntl_exec,pcntl_getpriority,pcntl_setpriority,/g' /etc/php/7.4/cli/php.ini
+sed -i 's/\;date\.timezone\ \=/date\.timezone\ \=\ Europe\/Paris/g' /etc/php/8.0/cli/php.ini
+sed -i 's/\memory_limit\ \=\ 128M/memory_limit\ \=\ -1/g' /etc/php/8.0/cli/php.ini
+sed -i 's/\display_errors\ \=\ Off/display_errors\ \=\ On/g' /etc/php/8.0/cli/php.ini
+sed -i 's/disable_functions\ \=\ pcntl_alarm,pcntl_fork,pcntl_waitpid,pcntl_wait,pcntl_wifexited,pcntl_wifstopped,pcntl_wifsignaled,pcntl_wexitstatus,pcntl_wtermsig,pcntl_wstopsig,pcntl_signal,pcntl_signal_dispatch,pcntl_get_last_error,pcntl_strerror,pcntl_sigprocmask,pcntl_sigwaitinfo,pcntl_sigtimedwait,pcntl_exec,pcntl_getpriority,pcntl_setpriority,/\;disable_functions\ \=\ pcntl_alarm,pcntl_fork,pcntl_waitpid,pcntl_wait,pcntl_wifexited,pcntl_wifstopped,pcntl_wifsignaled,pcntl_wexitstatus,pcntl_wtermsig,pcntl_wstopsig,pcntl_signal,pcntl_signal_dispatch,pcntl_get_last_error,pcntl_strerror,pcntl_sigprocmask,pcntl_sigwaitinfo,pcntl_sigtimedwait,pcntl_exec,pcntl_getpriority,pcntl_setpriority,/g' /etc/php/8.0/cli/php.ini
 
 pear channel-update pear.php.net
 ## Fix Tar Error
@@ -31,29 +31,30 @@ pear channel-update pear.php.net
 #cp Archive_Tar-1.4.3/Archive/Tar.php /usr/share/php/Archive/Tar.php
 #rm -rf  Archive_Tar-1.4.3
 
-pecl install sqlsrv-5.8.1
-pecl install pdo_sqlsrv-5.8.1
-echo "extension=sqlsrv" > /etc/php/7.4/mods-available/sqlsrv.ini
-echo "extension=pdo_sqlsrv" > /etc/php/7.4/mods-available/pdo_sqlsrv.ini
+pecl install sqlsrv-5.9.0
+pecl install pdo_sqlsrv-5.9.0
+echo "extension=sqlsrv" > /etc/php/8.0/mods-available/sqlsrv.ini
+echo "extension=pdo_sqlsrv" > /etc/php/8.0/mods-available/pdo_sqlsrv.ini
 
 #PEAR
 pear upgrade --force
-pear install pecl/amqp
-echo "extension=amqp" > /etc/php/7.4/mods-available/amqp.ini
+pear install pecl/amqp-1.11.0beta
+echo "extension=amqp" > /etc/php/8.0/mods-available/amqp.ini
 
 
-pear install pecl/redis-5.3.2
-echo "extension=redis" > /etc/php/7.4/mods-available/redis.ini
+pear install pecl/redis-5.3.4
+echo "extension=redis" > /etc/php/8.0/mods-available/redis.ini
 
-apt-get install -y libmagickwand-dev libmagickcore-dev libmagickwand-6.q16-6 libmagickcore-6.q16-6
-pear install pecl/imagick
-echo "extension=imagick" > /etc/php/7.4/mods-available/imagick.ini
+#apt-get install -y libmagickwand-dev libmagickcore-dev libmagickwand-6.q16-6 libmagickcore-6.q16-6
+#pear install pecl/imagick
+#echo "extension=imagick" > /etc/php/8.0/mods-available/imagick.ini
 
 
-pear install pecl/xdebug-2.9.8
-echo "zend_extension=xdebug" > /etc/php/7.4/mods-available/xdebug.ini
+pear install pecl/xdebug-3.0.4
+echo "zend_extension=xdebug" > /etc/php/8.0/mods-available/xdebug.ini
 
-phpenmod -v 7.4 -s cli amqp sqlsrv pdo_sqlsrv redis xdebug imagick
+phpenmod -v 8.0 -s cli amqp sqlsrv pdo_sqlsrv redis xdebug imagick
+#phpenmod -v 8.0 -s imagick
 
 #useradd -s /bin/bash --home /sources --no-create-home phpuser
 
@@ -61,4 +62,4 @@ groupadd -g ${gid} phpuser
 useradd -l -u ${uid} -g ${gid} -m -s /bin/bash phpuser
 usermod -a -G www-data phpuser
 
-apt-get remove -y libgcc-8-dev php7.4-dev libmagickwand-dev libmagickcore-dev gnupg && apt-get autoremove -y
+apt-get remove -y libgcc-8-dev php8.0-dev libmagickwand-dev libmagickcore-dev gnupg && apt-get autoremove -y

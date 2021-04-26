@@ -1,31 +1,31 @@
-# php74
-Docker Image With PHP 7.3 and many tools !
+# php80
+Docker Image With PHP 8.0 and many tools !
 
 ## Extensions
 
-* php7.4-dev
-* php7.4-cli
-* php7.4-bcmath
-* php7.4-curl
-* php7.4-gd
-* php7.4-mbstring
-* php7.4-mysql
-* php7.4-sqlite3
-* php7.4-xmlrpc
-* php7.4-xsl
-* php7.4-ldap
-* php7.4-gmp
-* php7.4-intl
+* php8.0-dev
+* php8.0-cli
+* php8.0-bcmath
+* php8.0-curl
+* php8.0-gd
+* php8.0-mbstring
+* php8.0-mysql
+* php8.0-sqlite3
+* php8.0-xmlrpc
+* php8.0-xsl
+* php8.0-ldap
+* php8.0-gmp
+* php8.0-intl
 * php-redis
-* php7.4-zip
-* php7.4-soap
-* php7.4-xml
-* php7.4-common
-* php7.4-json
-* php7.4-opcache
-* php7.4-readline
-* php7.4-xdebug
-* php7.4-imagick
+* php8.0-zip
+* php8.0-soap
+* php8.0-xml
+* php8.0-common
+* php8.0-json
+* php8.0-opcache
+* php8.0-readline
+* php8.0-xdebug
+* php8.0-imagick
 * amqp-1.9.3
 * pdo_sqlsrv
 * sqlsrv
